@@ -18,5 +18,49 @@
     <ClCompile Include="slpk_loukong.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BinModify.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DefPoint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteProcess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonModify.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadShp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectNodes.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BinModify.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DefPoint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteProcess.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonModify.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadShp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectNodes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
