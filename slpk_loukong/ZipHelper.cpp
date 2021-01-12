@@ -234,6 +234,8 @@ void CollectFilesInDirToZip(zipFile zf, string strPath, string parentDir)
 		}
 		AddFileToZip(zf, fullPath, currentPath); //将文件添加到zip文件中
 	} while (_findnext(Handle, &FileInfo) == 0);//find next file
+	_findclose(Handle);
+	zipCloseFileInZip(zf);
 }
 
 int ZipHelper::CompressMore(const char * Directory, const char * DestPath, int type, int mode)
@@ -315,12 +317,15 @@ int ZipHelper::CompressMore(const char * Directory, const char * DestPath, int t
 //将某个目录或者文件(dirName)压缩为zipFileName(.zip)文件
 void ZipHelper::CreateZipFromDir(string dirName, string zipFileName)
 {
-	long Handle;
+	intptr_t Handle1;
 	struct _finddata_t FileInfo;
 
-	if ((Handle = _findfirst(dirName.c_str(), &FileInfo)) == -1L)//目录不存在
-		return;
-
+	if ((Handle1 = _findfirst(dirName.c_str(), &FileInfo)) == -1L)//目录不存在
+	{
+		_findclose(Handle1);
+		cout << "目录不存在" << endl;
+	}
+	
 	zipFile newZipFile = zipOpen(zipFileName.c_str(), APPEND_STATUS_CREATE); //创建zip文件    
 	if (newZipFile == NULL)
 	{
@@ -362,16 +367,7 @@ void ZipHelper::CreateZipFromDir(string dirName, string zipFileName)
 			else
 				AddFileToZip(newZipFile, dirFileInfo.name, dircurrentPath);
 		} while (_findnext(Handle, &dirFileInfo) == 0);//find next file
-
-
-
-			//dirfullPath = dirName;
-			//dirfullPath += "//";
-			//dirfullPath += dirFileInfo.name;
-
-
-
-
+		_findclose(Handle);
 	}
 	else// is a file
 		AddFileToZip(newZipFile, FileInfo.name, dirName);
